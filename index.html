@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spotify Clone</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="sidebar">
+		<div class="sidebar-wrapper">
+			<div class="sidebar-logo">
+				<img src="imgs/logo.png">
+			</div><!-- sidebar-logo -->
+
+			<div class="sidebar-menu">
+				<a href="#" class="sidebar-menu-selecionado"><i class="fas fa-home"></i>Início</a>
+				<a href="#"><i class="fas fa-search"></i>Buscar</a>
+				<a href="#"><i class="fas fa-database"></i>Biblioteca</a>
+			</div> <!-- sidebar-menu -->
+
+			<div class="sidebar-menu">
+				<p class="sidebar-menu-title">Playlists</p>
+
+				<div class="sidebar-menu-item">
+					<div class="sidebar-menu-componente">+</div>
+					<span>Criar uma playlist</span>
+				</div>
+
+				<div class="sidebar-menu-item">
+					<img src="imgs/favorita.png">
+					<span>Músicas Curtidas</span>
+				</div>
+			</div> <!-- sidebar-menu -->
+
+			<div class="sidebar-playlist">
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+			</div><!-- sidebar-playlist -->
+			<div class="sidebar-playlist">
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+			</div><!-- sidebar-playlist -->
+			<div class="sidebar-playlist">
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+				<a href="#">Playlist</a>
+			</div><!-- sidebar-playlist -->
+
+		</div><!-- sidebar-wrapper -->
+	</div> <!-- sidebar --> 
+
+	<div class="main">
+		<div class="main-wrapper">
+			<div class="main-row">
+				<div class="main-row-title"><h2>Paradas</h2></div>
+				<div class="main-col">
+					<img src="imgs/top50.png">
+					<h3>As 50 mais tocadas</h3>
+					<p>Aqui vai a descrição da minha música</p>
+				</div>
+				<div class="main-col">
+					<img src="imgs/top50.png">
+					<h3>As 50 mais tocadas</h3>
+					<p>Aqui vai a descrição da minha música</p>
+				</div>
+				<div class="main-col">
+					<img src="imgs/top50.png">
+					<h3>As 50 mais tocadas</h3>
+					<p>Aqui vai a descrição da minha música</p>
+				</div>
+				<div class="main-col">
+					<img src="imgs/top50.png">
+					<h3>As 50 mais tocadas</h3>
+					<p>Aqui vai a descrição da minha música</p>
+				</div>
+				<div class="main-col">
+					<img src="imgs/top50.png">
+					<h3>As 50 mais tocadas</h3>
+					<p>Aqui vai a descrição da minha música</p>
+				</div>
+				<div class="main-col">
+					<img src="imgs/top50.png">
+					<h3>As 50 mais tocadas</h3>
+					<p>Aqui vai a descrição da minha música</p>
+				</div>
+			</div><!-- main-row -->
+
+			<div class="main-row">
+				<div class="main-row-title"><h2>Minhas Músicas</h2></div>
+				<div class="main-col" data-image="imgs/maxresdefault.jpg" data-artist="LMFAO" data-song="partyrock" data-file="assets/partyrock.mp3">
+					<img src="imgs/maxresdefault.jpg">
+					<h3>Party Rocky</h3>
+					<p>LMFAO</p>
+				</div>
+				<div class="main-col" data-image="imgs/saxobeat.jpg" data-artist="MrSaxo" data-song="saxobeat" data-file="assets/saxbeat.mp3">
+					<img src="imgs/saxobeat.jpg">
+					<h3>Mr Saxbeat</h3>
+					<p>Aqui vai a descrição da minha música</p>
+				</div>
+			</div><!-- main-row -->
+		</div><!-- main-wrapper --> 
+	</div><!-- main --> 
+
+<div class="player">
+	<div class="player-artist">
+
+	</div><!-- player-artist --> 
+
+	<div class="player-control">
+		<div class="player-control-buttons">
+			<a href=""><i class="fas fa-backward"></i></a>
+			<a style="display:none" id="pauseBtn" href=""><i class="far fa-pause-circle"></i></a>
+			<a id="playBtn" href=""><i class="far fa-play-circle"></i></a>
+			<a href=""><i class="fas fa-forward"></i></a>
+		</div><!-- player-control-buttons -->
+
+		<div class="player-control-progress">
+			<div style="width:0%" class="player-control-progress2">
+			
+			</div>
+		</div>
+	</div><!-- player-control -->
+</div><!-- player --> 
+
+	<audio id="audioplayer" style="position: absolute; left: 0; top:0; z-index: -999;" controls=""></audio>	
+
+	<script src="js/all.min.js"></script>
+
+	<script>
+		var audioPlayer = document.getElementById('audioplayer');
+		var loaded = false;
+		var playBtn = document.getElementById('playBtn');
+		var pauseBtn = document.getElementById('pauseBtn');
+
+
+		pauseBtn.addEventListener('click', (e)=>{
+			e.preventDefault();
+			playBtn.style.display = "inline";
+			pauseBtn.style.display = "none";
+			audioPlayer.pause();
+			return false;
+		});
+
+		playBtn.addEventListener('click', (e)=>{
+			e.preventDefault();
+			playBtn.style.display = "none";
+			pauseBtn.style.display = "inline";
+			audioPlayer.play();
+			return false;
+		});
+
+		const playSong = (file) => {
+
+			if(loaded == false){
+				audioPlayer.innerHTML = `<source src="`+file+`" type=audio/mp3 />`
+				loaded=true;
+			}
+
+			audioPlayer.play();
+
+			playBtn.style.display = "none";
+			pauseBtn.style.display = "inline";
+
+		}
+
+		document.querySelectorAll('.main-col').forEach(item =>{
+			item.addEventListener('click', event=>{
+				let image = (item.getAttribute('data-image'));
+				let artist = (item.getAttribute('data-artist'));
+				let song = (item.getAttribute('data-song'));
+				let file = (item.getAttribute('data-file'));
+				let playerArtistComponent = document.getElementsByClassName('player-artist');
+
+				playerArtistComponent[0].innerHTML = `
+				<img src="`+image+`" />
+				<h3>`+artist+`<br/><span>`+song+`</span></h3>
+				`;
+				playSong(file);
+			})
+		});
+	</script>
+
+</body>
+</html>
