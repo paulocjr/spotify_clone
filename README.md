@@ -1,5 +1,5 @@
 # spotify_clone
-Um simples clone da interface do Spotify feito juntamente com o Guilherme da Danki Code.
+Um simples clone da interface do Spotify feito juntamente com o Guilherme da Danki Code, com html, css e js puro.
 
 </br>
 
